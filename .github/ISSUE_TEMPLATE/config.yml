@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🐛 Reporter un bug ou proposer une feature
+    url: https://www.notion.so/curiousfactory
+    about: Tickets internes via Notion (Notion → 🍹 VIP Arena → 📋 Tickets). Pas d'issues GitHub pour les bugs/features produit.
+  - name: 🔒 Vulnérabilité de sécurité
+    url: https://github.com/curiousfactory/.github/blob/main/SECURITY.md
+    about: NE PAS ouvrir d'issue publique. Voir SECURITY.md pour la procédure de responsible disclosure.
+  - name: 💼 Question commerciale ou support client
+    url: mailto:contact@curiousfactory.fr
+    about: Pour toute demande externe, mail à contact@curiousfactory.fr
