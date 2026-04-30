@@ -1,8 +1,9 @@
-# Auto-adds new issues + PRs from this repo to the org-level Project "VIP Arena".
-# Workaround for GitHub Projects v2 5-rule limit on built-in Auto-add workflow.
+# Auto-adds new issues + PRs from this repo to the org-level Project "VIP Arena"
+# AND auto-sets the Component field based on which repo this is.
+#
 # Token: GH_PAT_VIP must have Account permissions > Projects: Read and write.
 
-name: Add to VIP Arena Project
+name: Add to VIP Arena Project + set Component
 
 on:
   issues:
@@ -11,10 +12,45 @@ on:
     types: [opened, reopened]
 
 jobs:
-  add:
+  add-and-tag:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v1
+        id: add
         with:
           project-url: https://github.com/orgs/curiousfactory/projects/1
           github-token: ${{ secrets.GH_PAT_VIP }}
+
+      - name: Set Component field
+        if: steps.add.outputs.itemId
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT_VIP }}
+          REPO: ${{ github.repository }}
+          ITEM_ID: ${{ steps.add.outputs.itemId }}
+        run: |
+          case "$REPO" in
+            curiousfactory/curiousfactory-ui)      OPTION="4cccd867" ;;  # cf-ui
+            curiousfactory/curiousfactory-engine)  OPTION="a039b0cf" ;;  # Hydra
+            curiousfactory/curiousfactory-fleet)   OPTION="47569a66" ;;  # Orbit
+            curiousfactory/viparena-server)        OPTION="af8455c0" ;;  # Core
+            curiousfactory/viparena-cloud)         OPTION="e9c08f9d" ;;  # Cipher (default for monorepo)
+            curiousfactory/viparena-platform)      OPTION="e52c0308" ;;  # Beacon
+            curiousfactory/viparena-schemas)       OPTION="5f9b5a8d" ;;  # viparena-schemas
+            curiousfactory/viparena-pilote)        OPTION="4d872fe5" ;;  # Spec
+            curiousfactory/.github)                OPTION="0edf44c6" ;;  # Cross
+            *)                                     OPTION="9cfe6833" ;;  # Other (fallback)
+          esac
+          
+          gh api graphql -f query='
+            mutation($p:ID!, $i:ID!, $f:ID!, $o:String!) {
+              updateProjectV2ItemFieldValue(input: {
+                projectId: $p, itemId: $i, fieldId: $f,
+                value: { singleSelectOptionId: $o }
+              }) { projectV2Item { id } }
+            }' \
+            -f p=PVT_kwDOCYKsNs4BWM9E \
+            -f i=$ITEM_ID \
+            -f f=PVTSSF_lADOCYKsNs4BWM9EzhRjHcA \
+            -f o=$OPTION
+          
+          echo "✓ Component set for $REPO (option $OPTION)"
