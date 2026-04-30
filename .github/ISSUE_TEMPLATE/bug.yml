@@ -1,0 +1,65 @@
+name: 🐛 Bug
+description: Quelque chose ne marche pas comme attendu
+title: "[Bug] "
+labels: ["type:bug"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Composant
+      description: Sur quel composant le bug se produit ?
+      options:
+        - cf-ui
+        - Hydra
+        - Core
+        - Orbit
+        - Cipher
+        - Sentinel
+        - Hermes
+        - Beacon
+        - viparena-schemas
+        - Infra
+        - Cross
+        - Spec
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 🎯 Ce qui se passe
+      description: Décris le bug en 1-2 phrases simples
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ Ce qui devrait se passer
+      description: Comportement attendu si tout marchait
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 🔁 Comment reproduire
+      description: Steps précis
+      placeholder: |
+        1. Aller sur…
+        2. Cliquer sur…
+        3. Voir le bug
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 📸 Screenshot / vidéo
+      description: Drag & drop ici (Cmd+V pour coller)
+
+  - type: input
+    id: context
+    attributes:
+      label: 🌐 Contexte
+      description: Quand / Où (URL) / Device (Mac/iPhone…) / Browser
+      placeholder: "Aujourd'hui · /editor/manche/42 · Mac · Chrome"

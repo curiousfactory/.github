@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 🐛 Reporter un bug ou proposer une feature
-    url: https://www.notion.so/curiousfactory
-    about: Tickets internes via Notion (Notion → 🍹 VIP Arena → 📋 Tickets). Pas d'issues GitHub pour les bugs/features produit.
+  - name: 📋 Workflow ticketing complet
+    url: https://github.com/orgs/curiousfactory/projects/1
+    about: Project board "VIP Arena" — vue agrégée de tous les tickets cross-repos. Nouveau ticket = utilise les templates ci-dessus.
   - name: 🔒 Vulnérabilité de sécurité
     url: https://github.com/curiousfactory/.github/blob/main/SECURITY.md
     about: NE PAS ouvrir d'issue publique. Voir SECURITY.md pour la procédure de responsible disclosure.

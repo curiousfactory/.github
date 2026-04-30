@@ -1,0 +1,51 @@
+name: ❓ Question
+description: Question sur le code, le format de jeu, l'archi, ou ce que tu veux
+title: "[Question] "
+labels: ["type:question"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Composant concerné
+      options:
+        - cf-ui
+        - Hydra
+        - Core
+        - Orbit
+        - Cipher
+        - Sentinel
+        - Hermes
+        - Beacon
+        - viparena-schemas
+        - Infra
+        - Cross
+        - Spec
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: 🤔 Ma question
+      description: Pose-la simplement, comme tu la dirais à voix haute
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 📌 Contexte
+      description: Tu travailles sur quoi ? Quel jeu / manche / type de contenu ?
+
+  - type: textarea
+    id: why
+    attributes:
+      label: 🎯 Pourquoi tu poses la question
+      description: Bloquée ? Doute ? Curieuse ? Validation ?
+
+  - type: textarea
+    id: intuition
+    attributes:
+      label: 💡 Ton intuition / ce que t'as déjà essayé
+      description: Si t'as une idée de réponse, dis-la — souvent c'est la bonne

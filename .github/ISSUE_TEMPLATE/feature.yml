@@ -1,0 +1,59 @@
+name: 💡 Feature idea
+description: Proposer une nouvelle fonctionnalité
+title: "[Feature] "
+labels: ["type:feature"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Composant
+      options:
+        - cf-ui
+        - Hydra
+        - Core
+        - Orbit
+        - Cipher
+        - Sentinel
+        - Hermes
+        - Beacon
+        - viparena-schemas
+        - Cross
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: 💭 L'idée en 1 phrase
+      placeholder: 'Ex : "On devrait pouvoir filtrer les jeux par durée."'
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🎯 Quel problème ça résout
+      description: Pour qui ? Quel pain point actuellement ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: ✨ Pourquoi c'est cool
+      placeholder: |
+        - Bénéfice 1
+        - Bénéfice 2
+
+  - type: textarea
+    id: mockup
+    attributes:
+      label: 🖼️ Idée visuelle
+      description: Mockup, sketch, capture d'autre app, lien Figma…
+
+  - type: textarea
+    id: open-questions
+    attributes:
+      label: 🤔 Questions ouvertes
+      description: Ce dont t'es pas sûr, ce qu'on pourrait débattre

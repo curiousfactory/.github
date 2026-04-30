@@ -1,0 +1,78 @@
+name: 🔍 Audit finding
+description: Finding remonté par un /audit-spec ou audit cross-repo
+title: "[Audit] "
+labels: ["type:audit-finding"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Composant
+      options:
+        - cf-ui
+        - Hydra
+        - Core
+        - Orbit
+        - Cipher
+        - Sentinel
+        - Hermes
+        - Beacon
+        - viparena-schemas
+        - Cross
+        - Spec
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Sévérité
+      options:
+        - CRITICAL
+        - MAJOR
+        - MINOR
+    validations:
+      required: true
+
+  - type: input
+    id: spec-ref
+    attributes:
+      label: Spec ref
+      description: Section spec violée
+      placeholder: "engine.md §11:2152 ou backend.md §6:343"
+    validations:
+      required: true
+
+  - type: input
+    id: file-line
+    attributes:
+      label: File:line de l'impl
+      placeholder: "src/render/render_layout.c:115-141 ou internal/share/handler.go:119"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du finding
+      description: Quelle est la divergence entre code et spec ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: Fix suggéré
+      description: Approche proposée pour résoudre
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: Source du finding
+      options:
+        - "/audit-spec"
+        - "/audit-tests"
+        - "/audit-contracts"
+        - "/audit-security"
+        - "/audit-integration"
+        - "Manuel (review humain)"
+        - "Bug report user"
+    validations:
+      required: true

@@ -1,0 +1,70 @@
+name: 🛠️ Tech chore
+description: Tâche technique sans valeur produit directe (refacto, bump dep, cleanup, infra, doc)
+title: "[Chore] "
+labels: ["type:chore"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Composant
+      options:
+        - cf-ui
+        - Hydra
+        - Core
+        - Orbit
+        - Cipher
+        - Sentinel
+        - Hermes
+        - Beacon
+        - viparena-schemas
+        - Infra
+        - Cross
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 🎯 Quoi
+      description: Description en 1 phrase
+      placeholder: 'Ex : "Bump Vue 3.5 → 3.6 dans cf-ui."'
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: why
+    attributes:
+      label: 🤔 Pourquoi
+      options:
+        - label: Dette technique
+        - label: Sécurité (CVE, dep vulnérable)
+        - label: Performance
+        - label: DX / dev experience
+        - label: Préparation d'une future feature
+        - label: Cleanup / removal de code mort
+        - label: Doc / commentaire / readme
+        - label: Infra / CI / déploiement
+
+  - type: checkboxes
+    id: dod
+    attributes:
+      label: ✅ Definition of done
+      options:
+        - label: Tests passent (`make test`)
+        - label: Coverage maintenu (≥80%)
+        - label: Lint OK (`make lint`)
+        - label: Doc mise à jour si nécessaire
+        - label: Commit avec `(#NN)` pour auto-link issue
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: ⚠️ Risques / impact
+      description: Ce qui peut casser. Composants impactés. Plan de rollback si applicable.
+
+  - type: textarea
+    id: refs
+    attributes:
+      label: 📎 Refs
+      description: Liens GitHub issues, PRs, commits, docs externes, ADR si décision archi
