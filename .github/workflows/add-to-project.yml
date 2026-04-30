@@ -1,0 +1,20 @@
+# Auto-adds new issues + PRs from this repo to the org-level Project "VIP Arena".
+# Workaround for GitHub Projects v2 5-rule limit on built-in Auto-add workflow.
+# Token: GH_PAT_VIP must have Account permissions > Projects: Read and write.
+
+name: Add to VIP Arena Project
+
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1
+        with:
+          project-url: https://github.com/orgs/curiousfactory/projects/1
+          github-token: ${{ secrets.GH_PAT_VIP }}
