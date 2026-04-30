@@ -15,7 +15,7 @@ jobs:
   add-and-tag:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@v1
+      - uses: actions/add-to-project@v1.0.2
         id: add
         with:
           project-url: https://github.com/orgs/curiousfactory/projects/1
@@ -29,16 +29,16 @@ jobs:
           ITEM_ID: ${{ steps.add.outputs.itemId }}
         run: |
           case "$REPO" in
-            curiousfactory/curiousfactory-ui)      OPTION="4cccd867" ;;  # cf-ui
-            curiousfactory/curiousfactory-engine)  OPTION="a039b0cf" ;;  # Hydra
-            curiousfactory/curiousfactory-fleet)   OPTION="47569a66" ;;  # Orbit
-            curiousfactory/viparena-server)        OPTION="af8455c0" ;;  # Core
-            curiousfactory/viparena-cloud)         OPTION="e9c08f9d" ;;  # Cipher (default for monorepo)
-            curiousfactory/viparena-platform)      OPTION="e52c0308" ;;  # Beacon
-            curiousfactory/viparena-schemas)       OPTION="5f9b5a8d" ;;  # viparena-schemas
-            curiousfactory/viparena-pilote)        OPTION="4d872fe5" ;;  # Spec
-            curiousfactory/.github)                OPTION="0edf44c6" ;;  # Cross
-            *)                                     OPTION="9cfe6833" ;;  # Other (fallback)
+            curiousfactory/curiousfactory-ui)      OPTION="4cccd867" ;;
+            curiousfactory/curiousfactory-engine)  OPTION="a039b0cf" ;;
+            curiousfactory/curiousfactory-fleet)   OPTION="47569a66" ;;
+            curiousfactory/viparena-server)        OPTION="af8455c0" ;;
+            curiousfactory/viparena-cloud)         OPTION="e9c08f9d" ;;
+            curiousfactory/viparena-platform)      OPTION="e52c0308" ;;
+            curiousfactory/viparena-schemas)       OPTION="5f9b5a8d" ;;
+            curiousfactory/viparena-pilote)        OPTION="4d872fe5" ;;
+            curiousfactory/.github)                OPTION="0edf44c6" ;;
+            *)                                     OPTION="9cfe6833" ;;
           esac
           
           gh api graphql -f query='
