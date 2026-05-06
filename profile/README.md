@@ -1,6 +1,6 @@
 # Curious Factory
 
-> Studio franco-belge créateur de **systèmes physiques de party games immersifs** pour lieux de loisir.
+> Studio français créateur de **systèmes physiques de party games immersifs** pour lieux de loisir.
 
 ## Produits
 
@@ -10,7 +10,7 @@ Quiz multi-joueur sur ring de boxe — borne tactile + télécommandes physiques
 
 ### 🍹 VIP Arena
 
-Système physique de party games multi-joueurs (18-30 personnes) pour lieux de loisir. Box Raspberry Pi + phones joueurs + immersion audio/lumière DMX. **Beta target : mi-juin 2026.**
+Système physique de party games multi-joueurs pour lieux de loisir. Box Raspberry Pi + phones joueurs + immersion audio/lumière DMX. **Beta target : mi-juin 2026.**
 
 ## Stack technique
 
